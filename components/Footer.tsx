@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
   FaInstagram,
 } from "react-icons/fa6";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -15,19 +16,25 @@ export default function Footer() {
         {/* BRAND COLUMN */}
         <div className="space-y-4">
           <div className="flex items-center gap-2.5 text-white font-bold text-xl tracking-tight">
-            <div className="p-1.5 rounded-lg bg-leaf-800 border border-leaf-700">
-              <Leaf className="w-5 h-5 fill-leaf-400 text-leaf-300" />
+            <div className="p-1.5 rounded-lg bg-white border border-leaf-700">
+              <Image
+                          src="/green-leaves-consulting-logo.png" // 1. Use a static image file
+                          alt="Green Leaves Logo"
+                          width={40} // 3. Provide explicit width
+                          height={40} // 4. Provide explicit height
+                          className="w-16 h-16 object-contain group-hover:scale-105 transition-transform duration-300"
+                        />  
             </div>
             <span>
               Green <span className="text-leaf-400 font-medium">Leaves</span>
             </span>
           </div>
-          <p className="text-xs text-leaf-200/90 leading-relaxed max-w-sm">
+          <p className="text-md text-leaf-200/90 leading-relaxed max-w-sm">
             Green Leaves Consulting Services Pvt. Ltd. provides evidence-based
             engineering, technical advisory, and compliance frameworks for
             grid-scale solar and wind developments across Nepal.
           </p>
-          <div className="inline-flex items-center gap-1.5 pt-2 text-[11px] text-leaf-300 font-medium">
+          <div className="inline-flex items-center gap-1.5 pt-2 text-[14px] text-leaf-300 font-medium">
             <Building2 className="w-3.5 h-3.5 text-leaf-400" />
             <span>Sister Company of JDNE</span>
           </div>
@@ -38,7 +45,7 @@ export default function Footer() {
           <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">
             Advisory Desk
           </h4>
-          <ul className="space-y-3 text-xs">
+          <ul className="space-y-3 text-md">
             {[
               { href: "/about", label: "Corporate Profile" },
               { href: "/services", label: "Core Capabilities" },
@@ -65,7 +72,7 @@ export default function Footer() {
           <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">
             Headquarters
           </h4>
-          <ul className="space-y-4 text-xs text-leaf-200">
+          <ul className="space-y-4 text-md text-leaf-200">
             <li className="flex items-start gap-2.5 leading-relaxed">
               <MapPin className="w-4 h-4 text-leaf-400 shrink-0 mt-0.5" />
               <span>
@@ -93,7 +100,7 @@ export default function Footer() {
           <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">
             Statutory & Media
           </h4>
-          <p className="text-[11px] text-leaf-300/80 leading-relaxed mb-5">
+          <p className="text-[14px] text-leaf-300/80 leading-relaxed mb-5">
             Incorporated under the Companies Act, 2006. Registered under Inland
             Revenue Office, Koteshwor Jurisdiction.
           </p>

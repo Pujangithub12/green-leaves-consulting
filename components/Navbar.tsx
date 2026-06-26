@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Leaf, Menu, X, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const links = [
   { href: "/", label: "Home" },
@@ -25,12 +26,22 @@ export default function Navbar() {
           href="/"
           className="flex items-center gap-2.5 group text-leaf-900 font-bold text-xl tracking-tight shrink-0 select-none"
         >
-          <div className="p-1.5 rounded-xl bg-leaf-50 group-hover:bg-leaf-100 transition-colors duration-300">
-            <Leaf className="w-5 h-5 fill-leaf-500 text-leaf-600 group-hover:scale-105 transition-transform duration-300" />
+          <Image
+            src="/green-leaves-consulting-logo.png" // 1. Use a static image file
+            alt="Green Leaves Logo"
+            width={40} // 3. Provide explicit width
+            height={40} // 4. Provide explicit height
+            className="w-20 h-20 object-contain group-hover:scale-105 transition-transform duration-300"
+          />
+
+          <div className="flex flex-col leading-none">
+            <span className="text-xl font-bold text-leaf-900">
+              Green <span className="text-leaf-600 font-medium">Leaves</span>
+            </span>
+            <span className="text-[10px] uppercase tracking-wider text-leaf-600 font-semibold mt-0.5">
+              & CONSULTING SERVICES
+            </span>
           </div>
-          <span>
-            Green <span className="text-leaf-600 font-medium">Leaves</span>
-          </span>
         </Link>
 
         {/* DESKTOP LINKS */}
@@ -48,12 +59,11 @@ export default function Navbar() {
                   }`}
                 >
                   {l.label}
-                  {/* Absolute active bar preventing any layout/height shifts */}
                   {isActive && (
                     <span className="absolute bottom-[-25px] left-0 right-0 h-[3px] bg-leaf-500 rounded-full" />
                   )}
                 </Link>
-              </li>
+              </li> // <-- Changed this from </td> to </li>
             );
           })}
         </ul>
@@ -64,7 +74,7 @@ export default function Navbar() {
             href="/contact"
             className="px-12 inline-flex items-center gap-1 bg-leaf-600 hover:bg-leaf-700 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-sm shadow-leaf-600/10 hover:shadow-md hover:shadow-leaf-600/20 active:scale-[0.98]"
           >
-             Contact
+            Contact
           </Link>
         </div>
 
